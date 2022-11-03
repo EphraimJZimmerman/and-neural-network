@@ -13,7 +13,7 @@ It's provided with three lists, where the first two are the conditions and the l
 0 and 1 = 0 |
 1 and 1 = 1
 
-The network will understand that for the condition to be met, our outcome must be exactly 1. Visually, imagine a 1x1 graph where (0,0), (0,1), (1,0) and (1,1) are all plotted. Our function would only be true if the data provided to us were to be at the location 1,1. This is what our neural network figures. 
+The network will understand that for the condition to be met, our outcome must be exactly 1. Visually, imagine a 1x1 graph where (0,0), (0,1), (1,0) and (1,1) are all plotted. Our final outcome would only be true if the data provided to us were to be at the location (1,1). This is what our neural network concludes. 
 
 Food for thought: What larger implications does this hold? How would one approach a non-linear function? 
 
