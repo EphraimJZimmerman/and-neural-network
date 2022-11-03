@@ -1,18 +1,19 @@
 import math
 import numpy
-import time
+
+# NOTE
+# I have added various questions which may help your overall understanding of this neural network. 
 
 def sigmoid(x):
     return 1 /(1 + 1 / numpy.exp(x))
 
-
-# Giving us our cost of
+# Giving us our cost of...
 b_fixed = 1
-b, w_1, w_2 = 1, 50, 50
+b, w_1, w_2 = 1, 2, -3  # Play around with these weights! How may this impact our final output?
 x_1, x_2, x_3 = [0, 0, 1, 1], [0, 1, 0, 1], [0, 0, 0, 1]
-k = 10
+k = 10 # how does the learning rate change our weights after each iteration? 
 
-for i in range(100000):
+for i in range(100000): # How may we make this more efficient? When do we know learning has been completed?
     z_3_1 = b + w_1 * x_1[0] + w_2 * x_2[0]
     output_1 = 1 / (1+math.exp(-z_3_1))
     cost_1 = pow((x_3[0]-output_1), 2)
@@ -73,6 +74,7 @@ for i in range(100000):
     average_change_in_w_2 = (
         (delta_c_w_2_1 + delta_c_w_2_2 + delta_c_w_2_3 + delta_c_w_2_4) / 4)
 
+    # Other details so you can watch the progress over time 
     # print("Change in bias", average_change_in_bias)
     # print("Change in w_1 ", average_change_in_w_1)
     # print("Change in w_2 ", average_change_in_w_2)
@@ -82,6 +84,7 @@ for i in range(100000):
     w_2_new = w_2 - k * average_change_in_w_2
 
     b, w_1, w_2 = b_new, w_1_new, w_2_new
+    # sigmoid added 
     print(sigmoid(b), sigmoid(w_1), sigmoid(w_2))
-    # print(b, w_1, w_2)
-    # time.sleep(0.5)
+    # sigmoid not added
+    print(b, w_1, w_2) 
