@@ -1,12 +1,18 @@
 import math
+import numpy
+import time
+
+def sigmoid(x):
+    return 1 /(1 + 1 / numpy.exp(x))
+
 
 # Giving us our cost of
 b_fixed = 1
-b, w_1, w_2 = 1, 4, -20
+b, w_1, w_2 = 1, 50, 50
 x_1, x_2, x_3 = [0, 0, 1, 1], [0, 1, 0, 1], [0, 0, 0, 1]
 k = 10
 
-for i in range(25000):
+for i in range(100000):
     z_3_1 = b + w_1 * x_1[0] + w_2 * x_2[0]
     output_1 = 1 / (1+math.exp(-z_3_1))
     cost_1 = pow((x_3[0]-output_1), 2)
@@ -76,4 +82,6 @@ for i in range(25000):
     w_2_new = w_2 - k * average_change_in_w_2
 
     b, w_1, w_2 = b_new, w_1_new, w_2_new
-    print(b, w_1, w_2)
+    print(sigmoid(b), sigmoid(w_1), sigmoid(w_2))
+    # print(b, w_1, w_2)
+    # time.sleep(0.5)
